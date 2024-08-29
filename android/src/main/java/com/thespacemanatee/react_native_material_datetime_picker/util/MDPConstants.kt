@@ -16,6 +16,8 @@ object MDPConstants {
   const val KEY_INPUT_MODE = "inputMode"
   const val KEY_FULLSCREEN = "fullscreen"
   const val KEY_TYPE = "type"
+  const val KEY_ALLOWED_DATES = "allowedDates"
+  const val KEY_FIRST_DAY_OF_WEEK = "firstDayOfWeek"
 
   // actions
   const val ACTION_SET_DATE = 0

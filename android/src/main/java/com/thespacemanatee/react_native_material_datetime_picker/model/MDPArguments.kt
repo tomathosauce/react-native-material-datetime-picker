@@ -13,5 +13,7 @@ data class MDPArguments(
   var negativeButtonText: String? = null,
   var inputMode: String? = null,
   var fullscreen: Boolean? = null,
-  var type: String? = null
+  var type: String? = null,
+  var allowedDates: HashMap<String, MutableList<Long>>? = null,
+  var firstDayOfWeek: String? = null
 )

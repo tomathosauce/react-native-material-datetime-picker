@@ -26,6 +26,7 @@ export default class DatePicker {
       maximumDate: options.maximumDate?.getTime(),
       startDate: options.startDate?.getTime(),
       endDate: options.endDate?.getTime(),
+      allowedDates: options.allowedDates?.map(x=>x.getTime())
     });
   }
 

@@ -182,7 +182,7 @@ export const App = () => {
 | `fullscreen`        | `boolean`                                  |         | ❌        | Whether to show the date picker in fullscreen mode                                                                                                                      |
 | `type`              | `AndroidDatePickerType`                    |         | ❌        | The type of date picker to launch. Can be either `AndroidDatePickerType.DEFAULT` for the regular date picker or `AndroidDatePickerType.RANGE` for the date range picker |
 | `onDateRangeChange` | `(startDate: Date, endDate: Date) => void` |         | ❌        | The callback invoked when a date range is selected                                                                                                                      |
-
+| `allowedDates` | `Date[]` |         | ❌        | A list of Javascript Dates which can be selected|
 #### Time Picker Options
 
 | Name        | Type                   | Default | Required | Description                                  |

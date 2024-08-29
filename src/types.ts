@@ -29,6 +29,16 @@ export enum ActionType {
   DISMISSED,
 }
 
+export enum DaysOfWeek {
+  MONDAY = "monday",
+  TUESDAY = "tuesday",
+  WEDNESDAY = "wenesday",
+  THURSDAY = "thursday",
+  FRIDAY = 'friday',
+  SATURDAY = 'saturday',
+  SUNDAY = 'sunday'
+}
+
 type BaseProps = Readonly<
   ViewProps & {
     /**
@@ -97,6 +107,14 @@ export interface DatePickerOptions extends BaseProps {
    * The callback invoked when a date range is selected
    */
   onConfirmDateRange?: (startDate: Date, endDate: Date) => void;
+  /**
+   * All the allowed dates in the date picker
+   */
+  allowedDates?: Date[];
+  /**
+   * The first day of the week in the date picker
+   */
+  //firstDayOfWeek?: DaysOfWeek;
 }
 
 export interface TimePickerOptions extends BaseProps {
