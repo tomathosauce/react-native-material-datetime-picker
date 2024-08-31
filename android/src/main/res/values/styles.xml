@@ -1,0 +1,10 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+  <style name="customDatePickerTheme" parent="ThemeOverlay.Material3.MaterialCalendar">
+    <item name="colorPrimary">#00936F</item>
+    <item name="buttonBarPositiveButtonStyle">@style/customTextButtonStyle</item>
+    <item name="buttonBarNegativeButtonStyle">@style/customTextButtonStyle</item>
+  </style>
+  <style name="customTextButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+    <item name="android:textColor">#00936F</item>
+  </style>
+</resources>

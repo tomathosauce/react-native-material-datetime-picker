@@ -15,6 +15,7 @@ const today = new Date();
 const start = subWeeks(today, 1);
 const end = addWeeks(today, 2);
 
+/*
 function adjustForTimezone(date:Date):Date{
   var timeOffsetInMS:number = date.getTimezoneOffset() * 60000;
   date.setTime(date.getTime() + timeOffsetInMS);
@@ -25,12 +26,11 @@ const days = [
   new Date(Date.UTC(2024, 7, 29, 0, 0, 0)),
   new Date(Date.UTC(2024, 7, 28, 0, 0, 0))
 ]
-
+*/
 // const days = [
 //   new Date(2024, 7, 29, 0, 0, 0),
 //   new Date(2024, 7, 28, 0, 0, 0)
 // ].map(x=>adjustForTimezone(x))
-
 
 const App: FunctionComponent = () => {
   const [currentTime, setCurrentTime] = useState(today);
@@ -71,7 +71,7 @@ const App: FunctionComponent = () => {
       onConfirm: (date) => {
         setCurrentDate(date);
       },
-      allowedDates: days
+      //allowedDates: days
     });
   };
 

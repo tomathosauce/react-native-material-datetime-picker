@@ -1,6 +1,5 @@
 package com.thespacemanatee.react_native_material_datetime_picker.util
 
-import android.util.Log
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.TimeZone

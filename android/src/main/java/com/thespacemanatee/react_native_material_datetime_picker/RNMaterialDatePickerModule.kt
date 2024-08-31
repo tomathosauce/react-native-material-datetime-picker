@@ -12,11 +12,11 @@ import com.facebook.react.bridge.ReadableMap
 import com.facebook.react.bridge.UiThreadUtil
 import com.facebook.react.bridge.WritableNativeMap
 import com.facebook.react.common.annotations.VisibleForTesting
+import com.google.android.material.R
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.datepicker.MaterialDatePicker.INPUT_MODE_CALENDAR
 import com.google.android.material.datepicker.MaterialDatePicker.INPUT_MODE_TEXT
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener
-import com.google.android.material.R
 import com.thespacemanatee.react_native_material_datetime_picker.model.MDPArguments
 import com.thespacemanatee.react_native_material_datetime_picker.model.MDPDate
 import com.thespacemanatee.react_native_material_datetime_picker.util.MDPConstants.ACTION_DISMISSED
@@ -37,6 +37,7 @@ import com.thespacemanatee.react_native_material_datetime_picker.util.createCale
 import com.thespacemanatee.react_native_material_datetime_picker.util.createDialogArguments
 import com.thespacemanatee.react_native_material_datetime_picker.util.dismissDialog
 import com.thespacemanatee.react_native_material_datetime_picker.util.fixDate
+import com.thespacemanatee.react_native_material_datetime_picker.R as R1
 
 class RNMaterialDatePickerModule(reactContext: ReactApplicationContext) :
   ReactContextBaseJavaModule(reactContext), BaseRNMaterialPicker {
@@ -149,7 +150,7 @@ class RNMaterialDatePickerModule(reactContext: ReactApplicationContext) :
         }
     } else {
       val date = MDPDate(args.value).fixDate()
-      val theme = if (args.fullscreen == true) R.style.ThemeOverlay_Material3_MaterialCalendar_Fullscreen else R.style.ThemeOverlay_Material3_MaterialCalendar
+      val theme = if (args.fullscreen == true) R1.style.customDatePickerTheme else R1.style.customDatePickerTheme
       MaterialDatePicker.Builder.datePicker()
         .setSelection(date.timeInMillis)
         .setCalendarConstraints(args.createCalendarConstraints())

@@ -30,13 +30,13 @@ export enum ActionType {
 }
 
 export enum DaysOfWeek {
-  MONDAY = "monday",
-  TUESDAY = "tuesday",
-  WEDNESDAY = "wenesday",
-  THURSDAY = "thursday",
+  MONDAY = 'monday',
+  TUESDAY = 'tuesday',
+  WEDNESDAY = 'wenesday',
+  THURSDAY = 'thursday',
   FRIDAY = 'friday',
   SATURDAY = 'saturday',
-  SUNDAY = 'sunday'
+  SUNDAY = 'sunday',
 }
 
 type BaseProps = Readonly<

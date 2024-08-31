@@ -166,5 +166,8 @@
       ]
     ]
   },
-  "dependencies": {}
+  "dependencies": {
+    "expo": "49",
+    "expo-module-scripts": "^3.5.2"
+  }
 }
