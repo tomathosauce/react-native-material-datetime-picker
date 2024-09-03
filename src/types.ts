@@ -114,7 +114,7 @@ export interface DatePickerOptions extends BaseProps {
   /**
    * The first day of the week in the date picker
    */
-  //firstDayOfWeek?: DaysOfWeek;
+  firstDayOfWeek?: DaysOfWeek;
 }
 
 export interface TimePickerOptions extends BaseProps {

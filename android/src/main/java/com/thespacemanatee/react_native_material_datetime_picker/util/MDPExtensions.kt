@@ -71,10 +71,8 @@ fun ReadableMap.createDialogArguments() = MDPArguments().apply {
   }
   if (hasKey(KEY_ALLOWED_DATES) && !isNull(KEY_ALLOWED_DATES)) {
     val allowedDatesArray = getArray(KEY_ALLOWED_DATES)
-
-
     if(allowedDatesArray != null){
-      var listMap = hashMapOf<String, MutableList<Long>>()
+      val listMap = hashMapOf<String, MutableList<Long>>()
 
       for (i in 0 until allowedDatesArray.size()) {
 
@@ -84,7 +82,7 @@ fun ReadableMap.createDialogArguments() = MDPArguments().apply {
             Log.d("allowedDatesArray", "$number")
             val identifier = calendarToYearMonth(getCalendarFromLong(number))
             if(!listMap.containsKey(identifier)) {
-              listMap[identifier] = mutableListOf<Long>()
+              listMap[identifier] = mutableListOf()
             }
             listMap[identifier]?.add(number)
           }
@@ -108,17 +106,18 @@ fun MDPArguments.createCalendarConstraints(): CalendarConstraints {
     minDate?.let {
       date.timeInMillis = it
       date.fixDate(true)
+      setStart(date.timeInMillis)
       listValidators.add(DateValidatorPointForward.from(date.timeInMillis))
     }
     maxDate?.let {
       date.timeInMillis = it
       date.fixDate()
+      setEnd(date.timeInMillis)
       listValidators.add(DateValidatorPointBackward.before(date.timeInMillis))
     }
     allowedDates?.let {
       listValidators.add(AllowedDatesValidator(it))
     }
-    /*
 
     var weekDay = Calendar.SUNDAY
 
@@ -135,10 +134,9 @@ fun MDPArguments.createCalendarConstraints(): CalendarConstraints {
       }
     }
 
-    //This only works on version 1.7.0 of 'com.google.android.material:material:1.6.1'
+    //This only works on version 1.7.0 or greater of 'com.google.android.material'
     setFirstDayOfWeek(weekDay)
 
-     */
     setValidator(CompositeDateValidator.allOf(listValidators))
   }
   return builder.build()

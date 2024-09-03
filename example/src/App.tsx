@@ -9,28 +9,23 @@ import RNMaterialDatetimePicker, {
   AndroidTimeInputMode,
   MaterialDatetimePickerAndroid,
   AndroidDatePickerType,
+  DaysOfWeek,
 } from 'react-native-material-datetime-picker';
+
+function adjustForTimezone(date: Date): Date {
+  const timeOffsetInMS: number = date.getTimezoneOffset() * 60000;
+  date.setTime(date.getTime() - timeOffsetInMS);
+  return date;
+}
 
 const today = new Date();
 const start = subWeeks(today, 1);
 const end = addWeeks(today, 2);
 
-/*
-function adjustForTimezone(date:Date):Date{
-  var timeOffsetInMS:number = date.getTimezoneOffset() * 60000;
-  date.setTime(date.getTime() + timeOffsetInMS);
-  return date
-}
-
 const days = [
-  new Date(Date.UTC(2024, 7, 29, 0, 0, 0)),
-  new Date(Date.UTC(2024, 7, 28, 0, 0, 0))
-]
-*/
-// const days = [
-//   new Date(2024, 7, 29, 0, 0, 0),
-//   new Date(2024, 7, 28, 0, 0, 0)
-// ].map(x=>adjustForTimezone(x))
+  new Date(2024, 8, 29, 0, 0, 0),
+  new Date(2024, 8, 28, 0, 0, 0),
+].map((x) => adjustForTimezone(x));
 
 const App: FunctionComponent = () => {
   const [currentTime, setCurrentTime] = useState(today);
@@ -61,8 +56,8 @@ const App: FunctionComponent = () => {
       value: currentDate,
       titleText: 'Select booking date',
       mode: AndroidPickerMode.DATE,
-      minimumDate: subWeeks(today, 3),
-      maximumDate: addWeeks(today, 4),
+      minimumDate: adjustForTimezone(subWeeks(today, 3)),
+      maximumDate: adjustForTimezone(addWeeks(today, 4)),
       positiveButtonText: 'Sounds good!',
       negativeButtonText: 'Nah',
       inputMode: AndroidDateInputMode.CALENDAR,
@@ -71,7 +66,8 @@ const App: FunctionComponent = () => {
       onConfirm: (date) => {
         setCurrentDate(date);
       },
-      //allowedDates: days
+      firstDayOfWeek: DaysOfWeek.MONDAY,
+      allowedDates: days,
     });
   };
 

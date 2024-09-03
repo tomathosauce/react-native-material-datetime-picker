@@ -5,6 +5,7 @@ export {
   AndroidDateInputMode,
   AndroidTimeInputMode,
   AndroidDatePickerType,
+  DaysOfWeek,
 } from './types';
 
 export default RNMaterialDatetimePicker;
