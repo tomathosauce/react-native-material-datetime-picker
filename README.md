@@ -181,7 +181,8 @@ export const App = () => {
 | `inputMode`         | `AndroidDateInputMode`                     |         | ❌        | The input mode to launch the date picker in                                                                                                                             |
 | `fullscreen`        | `boolean`                                  |         | ❌        | Whether to show the date picker in fullscreen mode                                                                                                                      |
 | `type`              | `AndroidDatePickerType`                    |         | ❌        | The type of date picker to launch. Can be either `AndroidDatePickerType.DEFAULT` for the regular date picker or `AndroidDatePickerType.RANGE` for the date range picker |
-| `onDateRangeChange` | `(startDate: Date, endDate: Date) => void` |         | ❌        | The callback invoked when a date range is selected                                                                                                                      |
+| `onDateRangeChange` | `(startDate: Date, endDate: Date) => void` |         | ❌        | The callback invoked when a date range is selected |
+| `firstDayOfWeek` | `DaysOfWeek` |         | ❌        | The first day of the week |
 
 #### Time Picker Options
 
